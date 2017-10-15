@@ -1,0 +1,109 @@
+<html>
+<head>
+    <!--
+    Customize this policy to fit your own app's needs. For more guidance, see:
+        https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+    Some notes:
+        * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+        * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+        * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+            * Enable inline JS: add 'unsafe-inline' to default-src
+    -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/custom.css"/>
+    <link rel="stylesheet" href="css/bootstrap.offcanvas.css"/>
+    <title>Hello World</title>
+</head>
+<body>
+<div class="app">
+    <div class="">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <span class="navbar-brand" id="jback"><span class="glyphicon glyphicon-circle-arrow-left"></span></span>
+                    <span class="navbar-brand">Lecture Materials</span>
+                </div>
+
+
+            </div>
+        </nav>
+
+
+        <div class="container">
+            <div class="">
+                <div>
+                    <label>Course Unit</label>
+                    <select class="form-control" id="jcourse">
+                    </select>
+                </div>
+
+                <br/>
+                <button class="btn btn-block btn-primary" id="jfilter">Find Resources</button>
+
+            </div>
+
+
+            <hr/>
+            <div id="downloadsdata">
+
+            </div>
+            <div id="preloader" ></div>
+        </div>
+
+    </div>
+</div>
+<div id="newbutton"><span class="glyphicon glyphicon-plus"></span></div>
+
+<!-- New download -->
+<div class="modal fade" id="newdownload" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add new resource</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <label>Resource Note</label>
+                    <textarea id="newdescription" class="form-control"></textarea>
+                    <div class="fielderror" id="e1" style="display: none;">Please enter note!</div>
+                </div>
+                <br/>
+                <div>
+                    <label>Download link</label>
+                    <textarea id="newlink" class="form-control"></textarea>
+                    <div class="fielderror" id="e2" style="display: none;">Please enter valid download link!</div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="adddownloadbutton">Add resource</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- New download  -->
+
+
+
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/bootbox.min.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/downloads.js"></script>
+<script>
+
+
+
+
+
+</script>
+</body>
+</html>
+

@@ -1,0 +1,174 @@
+<html>
+<head>
+    <!--
+    Customize this policy to fit your own app's needs. For more guidance, see:
+        https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+    Some notes:
+        * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+        * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+        * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+            * Enable inline JS: add 'unsafe-inline' to default-src
+    -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/custom.css"/>
+    <link rel="stylesheet" href="css/bootstrap.offcanvas.css"/>
+    <title>Hello World</title>
+</head>
+<body>
+<div class="app">
+    <div>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <span class="navbar-brand" id="jback"><span class="glyphicon glyphicon-circle-arrow-left"></span></span>
+                    <span class="navbar-brand">Timetable</span>
+                </div>
+
+
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <select class="form-control" id="jday">
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
+                    </select>
+                </div>
+
+
+            </div>
+            <hr>
+
+            <div class="timetable" id="timetabledata"></div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- New download -->
+<div class="modal fade" id="newextralecture" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add extra lecture</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <label>Course</label>
+                    <select class="form-control" id="jleccourse">
+
+                    </select>
+                </div>
+                <br/>
+                <div>
+                    <label>Hall <a href="javascript:getAvailableSlots();">Check</a></label>
+                    <select class="form-control" id="jlechall">
+
+                    </select>
+                    <div id="hallavail"></div>
+                </div>
+                <div class="fielderror" id="e1" style="display: none;">This hall is not available!</div>
+                <br/>
+                <div>
+                    <label>Time</label>
+                    <select class="form-control" id="jlecstarttime">
+                        <option value="06:00 AM">06:00 AM</option>
+                        <option value="06:30 AM">06:30 AM</option>
+                        <option value="07:00 AM">07:00 AM</option>
+                        <option value="07:30 AM">07:30 AM</option>
+                        <option value="08:00 AM">08:00 AM</option>
+                        <option value="08:30 AM">08:30 AM</option>
+                        <option value="09:00 AM">09:00 AM</option>
+                        <option value="09:30 AM">09:30 AM</option>
+                        <option value="10:00 AM">10:00 AM</option>
+                        <option value="10:30 AM">10:30 AM</option>
+                        <option value="11:00 AM">11:00 AM</option>
+                        <option value="11:30 AM">11:30 AM</option>
+                        <option value="12:00 PM">12:00 PM</option>
+                        <option value="12:30 PM">12:30 PM</option>
+                        <option value="13:00 PM">13:00 PM</option>
+                        <option value="13:30 PM">13:30 PM</option>
+                        <option value="14:00 PM">14:00 PM</option>
+                        <option value="14:30 PM">14:30 PM</option>
+                        <option value="15:00 PM">15:00 PM</option>
+                        <option value="15:30 PM">15:30 PM</option>
+                        <option value="16:00 PM">16:00 PM</option>
+                        <option value="16:30 PM">16:30 PM</option>
+                        <option value="17:00 PM">17:00 PM</option>
+                        <option value="17:30 PM">17:30 PM</option>
+                        <option value="18:00 PM">18:00 PM</option>
+                        <option value="18:30 PM">18:30 PM</option>
+                        <option value="19:00 PM">19:00 PM</option>
+                        <option value="19:30 PM">19:30 PM</option>
+                        <option value="20:00 PM">20:00 PM</option>
+                        <option value="20:30 PM">20:30 PM</option>
+                    </select>
+
+                    <select class="form-control" id="jlecendtime">
+                        <option value="06:00 AM">06:00 AM</option>
+                        <option value="06:30 AM">06:30 AM</option>
+                        <option value="07:00 AM">07:00 AM</option>
+                        <option value="07:30 AM">07:30 AM</option>
+                        <option value="08:00 AM">08:00 AM</option>
+                        <option value="08:30 AM">08:30 AM</option>
+                        <option value="09:00 AM">09:00 AM</option>
+                        <option value="09:30 AM">09:30 AM</option>
+                        <option value="10:00 AM">10:00 AM</option>
+                        <option value="10:30 AM">10:30 AM</option>
+                        <option value="11:00 AM">11:00 AM</option>
+                        <option value="11:30 AM">11:30 AM</option>
+                        <option value="12:00 PM">12:00 PM</option>
+                        <option value="12:30 PM">12:30 PM</option>
+                        <option value="13:00 PM">13:00 PM</option>
+                        <option value="13:30 PM">13:30 PM</option>
+                        <option value="14:00 PM">14:00 PM</option>
+                        <option value="14:30 PM">14:30 PM</option>
+                        <option value="15:00 PM">15:00 PM</option>
+                        <option value="15:30 PM">15:30 PM</option>
+                        <option value="16:00 PM">16:00 PM</option>
+                        <option value="16:30 PM">16:30 PM</option>
+                        <option value="17:00 PM">17:00 PM</option>
+                        <option value="17:30 PM">17:30 PM</option>
+                        <option value="18:00 PM">18:00 PM</option>
+                        <option value="18:30 PM">18:30 PM</option>
+                        <option value="19:00 PM">19:00 PM</option>
+                        <option value="19:30 PM">19:30 PM</option>
+                        <option value="20:00 PM">20:00 PM</option>
+                        <option value="20:30 PM">20:30 PM</option>
+                    </select>
+                </div>
+                <div class="fielderror" id="e2" style="display: none;">Invalid time range selected!</div>
+                <div class="fielderror" id="e3" style="display: none;">This time slot is not available!</div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="addextralecturebutton">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- New download  -->
+
+<div id="newbutton"><span class="glyphicon glyphicon-plus"></span></div>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/bootbox.min.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/timetable.js"></script>
+</body>
+</html>
+

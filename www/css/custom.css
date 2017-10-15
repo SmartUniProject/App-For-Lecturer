@@ -1,0 +1,150 @@
+.logo{
+    background-image: url('../images/logo.png');
+    height: 100px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+*
+{
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+input
+{
+    -webkit-user-select: auto !important;
+    -khtml-user-select: auto !important;
+    -moz-user-select: auto !important;
+    -ms-user-select: auto !important;
+    user-select: auto !important;
+}
+
+body { padding-top: 70px;}
+
+.timetable{
+
+}
+
+.timetable .slot{
+
+}
+
+.timetable .slot-free{
+    text-align: center;
+    font-size: 14px;
+}
+
+.timetable .slot .code{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.timetable .slot .code span{
+    font-size: 12px;
+}
+
+.timetable .slot .name{
+    font-size: 14px;
+}
+
+.timetable .slot ul{
+    padding: 0px;
+    list-style: none;
+
+}
+
+.timetable .slot ul li{
+    padding: 2px 0px;
+    font-size: 14px;
+}
+
+#newbutton{
+    cursor:pointer;
+    width:50px;
+    height:50px;
+    background-color: dodgerblue;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    position: fixed;
+    right:5%;
+    bottom:5%;
+    box-shadow: 0px 0px 24px rgba(0,0,0,0.2);
+}
+
+#newbutton span{
+    padding: 16px 18px;
+    color:whitesmoke;
+}
+
+.fielderror{
+    font-size: 12px;
+    color: #ee1111;
+    padding: 4px 0px;
+}
+
+#preloader{
+    height:100px;
+    background-image: url('../images/loader.gif');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.modal {
+    text-align: center;
+    padding: 0!important;
+}
+
+.modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    width:80%;
+    vertical-align: middle;
+}
+
+.sendmsg{
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width:100%;
+    height: 100px;
+    background-color: lightgrey;
+    padding: 4px;
+
+}
+
+.sendmsg textarea{
+    height: 100%;
+}
+
+#threaddata{
+
+}
+
+#threaddata .fromthread .inner{
+    background-color: #eeeeee;
+    padding: 6px;
+    font-size:14px;
+}
+
+#threaddata .thread{
+    margin-bottom: 12px;
+}
+
+#threaddata .tothread .inner{
+    background-color: lightsteelblue;
+    padding: 6px;
+    font-size:14px;
+}
